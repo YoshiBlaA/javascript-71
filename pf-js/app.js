@@ -1,145 +1,102 @@
 /**
- * Condicionales:
- * Serie de condiciones para que algo suceda
- *
- * En programación para el manejo de estas condiciones tenemos:
- *
- * ! El bloque if else
- * ? Bloque if pregunta por una condición en caso de que esta condición sea:
- * ? - verdadera: ejecuta un bloque de código-
- * ? - falso: no ejecuta nada.
- * ? else maneja la ejecución de código en caso negativo.
- *
- * Lo que se coloca dentro del if, debe ser algo que genere:
- * * un valor True o False (tipo de dato boolean)
- *
- * TODO - EJERCICIO: Código que obtenga la edad del usuario
- * 1. Codigo que obtenga la edad del user
- * 2. Pedir la fecha de nacimiento
- * 3. Tomar el año actual para calcular su edad.
- *
- */
-
-/**
- * Convertir de texto a numero
+ * Estructura de datos
+ * Que son y por que son importantes?
+ * 
+ * Son estructuras que nos ayudan a agrupar y/u ordenar datos.
+ * Para manipular estos datos de manera mas eficiente.
+ * Dato no representa nada por si solo.
+ * Datos juntos y dandoles contexto se vuelve informacion.
+ * 
+ * * Array
+ *  Es una estructura de datos ordenada
  * ! Importante
- * Si se trata de convertir algo que no es un  número como resultado, obtendremos NaN (Not a Number)
+ *  Los datos se identifican por un indice, el indice empieza a contar desde cero.
+ * 
+ * ! Importante pero particular de JS
+ *  Podemos guardar cualquier tipo de dato dentro del array, incluso combinaciones.
+ * Tienen tamannio dinamico.
+ * 
  */
 
-const actualYear = 2026;
-const userBirthYear = prompt("Ingresa tu año de nacimiento");
-const userAge = actualYear - Number(userBirthYear);
+//  * Definicion de un array
+//  ? Array vacio
+const arrayVacio = []
 
-alert(`Tienes ${userAge} años de edad`);
+//  ? Array con contenido
+const arrayContenido = ["Alberto", 20, true];
 
-// TODO - FIN DE EJERCICIO
+const months = ["Jan", "March", "April", "June"];
+/**
+ * Obtencion de un elemento guardado en un array
+ * 
+ * Notacion corchete
+ *  
+*/  
+console.log(arrayContenido[1]);
+console.log(arrayContenido[0]);
+console.log(arrayContenido[3]);
 
 /**
- * TODO: Operadores lógicos
- * Sirven par ahacer operaciones cuyo resultado es Verdadero o Falso
- *
- * Mayor que >
- * 2 > 1 == True
- * 1 > 2 == Falso
- *
- * Menor que <
- * 2 < 1 == Falso
- * 3 < 5 == Verdadero
- *
- * Comparador de igualdad ==
- * 2 == 2 == Verdadero
- * 3 == 1 == Falso
- *
- * Mayor o igual que >=
- * 2 >= 2 == Verdadero
- * 2 >= 3 == falso
- *
- * Menor o igual que <=
- * 4 <= 4 == Verdadero
- * 7 <= 5 == Falso
- *
- * Diferente de !=
- * 5 != 4 == Verdadero
- * 5 != 5 == Falso
- *
- * Negación (not) !
- * !Verdadero == Falso
- * !Falso = Verdadero
+ * Ingresar datos al array
+ * Metodos
+ * 
+ * 1. Unshift para ingresar elementos al comienzo del array.
+ * 2. Push para ingresar elementos al final del array.
  */
+console.log("Array antes");
+console.log(arrayContenido);
+arrayContenido.unshift("Javier");
+console.log("Array despues");
+console.log(arrayContenido);
+
+console.log("Array antes");
+console.log(arrayContenido);
+arrayContenido.push("Daniel", false);
+console.log("Array despues");
+console.log(arrayContenido);
 
 /**
- * Dentro de los parentesis va la condicion que se va a evaluar.
- * Dentro de las llaves va el codigo que se va a ejecutar en caso de que la condicion sea Verdadero.
+ * Eliminar datos
+ * 1. Shift elimina y devuelve el elemento en la posicion cero.
+ * 2. Pop elimina y devuelve el ultimo elemento del array.
+ * 
+ * Nota: 
+ *  Lo que va dentro de los parentesis de un metodo o funcion se conoce como argumento.
  */
 
-// TODO - EJERCICIO
+console.log("Array antes");
+console.log(arrayContenido);
+// arrayContenido.shift()
+console.log(`Elemento eliminado ${arrayContenido.shift()}`);
+console.log("Array despues");
+console.log(arrayContenido);
 
-if (userAge >= 18) {
-    alert("Bienvenido, eres mayor de edad");
-} else {
-    alert("Aún no puedes pasar, vuelve cuando cumplas los 18");
-}
-
-// TODO - FIN EJERCICIO
+console.log("Array antes");
+console.log(arrayContenido);
+// arrayContenido.pop()
+console.log(`Elemento eliminado ${arrayContenido.pop()}`);
+console.log("Array despues");
+console.log(arrayContenido);
 
 /**
- * ? Else if
- * Nos permiete evaluar más de una condición.
- * Va asociado a un if.
+ * Reasignar el valor de un indice
  */
-
-// TODO - EJERCICIO
-
-if (userAge >= 18) {
-    alert("Bienvenido, eres mayor de edad");
-} else if(userAge >= 6){
-    alert("Felicidades, entraste a la primaria.");
-} else if(userAge >= 1){
-    alert("Felicidades, sigues en el kinder");
-} else {
-    alert("Estás muy bebé o aún no has nacido");
-}
-// TODO - FIN EJERCICIO
+let valorAnterior = arrayContenido[0];
+arrayContenido[0] = "Liz"
+arrayContenido[2] = "Josue";
+console.log(`El valor anterior es: ${valorAnterior}`);
+console.log(`Resultado de la reasignacion de un elemento`, arrayContenido);
 
 /**
- * AND && Es un operador que devuelve
- * ? Verdadero solo si ambos lados de la expresión son Verdadero
- * ? Si un lado es Falso todo el resultado se vuelve Falso.
- * Verdadero &&  Verdadero == Verdadero
- * Verdadero && Falso == Falso
- * Falso && Verdadero == Falso
- * 
- * OR || ES un operador que devuelve
- * ? Falso si ambos lados de la expresión son Falso
- * ? Si un lado de la expresión es Verdadero, devuelve Verdadero.
- * 
- * Verdadero || Falso == Verdadero
- * Falso || Verdadero == Verdadero
- * Falso || Falso == Falso
- * 
- * age >= 6 && age <= 12
- * age 7 == Verdadero
- * age 15 == Falso
- * age 5 == Falso
- * 
- * age > 20 || age < 100
- * 
- * age 101 == Verdadero
+ * Splice
+ * Elimina elementos o agrega
  */
+console.log("=============SPLICE=============");
+arrayContenido.splice(1, 1);
+console.log(arrayContenido);
+arrayContenido.splice(1, 2);
+console.log(arrayContenido);
 
-if(userAge >= 18){
-    alert("Bienvenido, eres mayor de edad");
-}else if(userAge >= 12 && userAge <= 17){
-    alert("Eres un adolescente");
-}else if(userAge >=6 && edad <= 11){
-    alert("Estás en la primaria");
-}else{
-    alert("Aún eres un pequeñín");
-}
-
-/**
- * ? const birthYear = prompt("Ingresa tu fecha de nacimiento");
- * ? let birthYearPlusTen = Number(birthYear) + 10;
- * ? console.log(birthYear);
- * ? console.log(birthYearPlusTen)
- */
+// Ingresar elementos
+months.splice(2,0, "Feb");
+console.log(months);
